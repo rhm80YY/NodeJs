@@ -17,40 +17,36 @@ let salarios = [{
     salario: 2000
 }];
 
-// let getEmpleado = (id, callback) => {
-//     let empleadoDB = empleados.find(empleado => empleado.id === id)
-//     if (!empleadoDB) {
-//         callback(`No existe un empleado con el ID ${ id }`)
-//     } else {
-//         callback(null, empleadoDB);
-//     }
-//     console.log(empleadoDB);
-// }
-
-
-//la respuesta debe de ser 
-// nombre:  'Ruben'
-// salario: 300
-
-//error 
-// no se encontro un salario para el usuario fernasndo
-
-// tarea 
-let getSalario = (id, callback) => {
-    let salarioBD = salarios.find(salario => salario.id === id)
-    console.log(salarioBD);
-    // tienen que encontrar el salario para un empleado en particular 
+let getEmpleado = (id, callback) => {
+    let empleadoDB = empleados.find(empleado => empleado.id === id)
+    if (!empleadoDB) {
+        callback(`No existe un empleado con el ID ${ id }`);
+    } else {
+        callback(null, empleadoDB);
+    }
 }
-
-getSalario(1, (empleado) => {
-    console.log(empleado)
+let getSalario = (empleado, callback) => {
+        let salarioDB = salarios.find(salario => salario.id === empleado.id);
+        if (!salarioDB) {
+            callback(`No se encontro un salario para el usuairo ${ empleado.nombre }`);
+        } else {
+            callback(null, {
+                nombre: empleado.nombre,
+                salario: salarioDB.salario,
+                id: empleado.id
+            });
+        }
+    }
+    //llamamos a la funcion get empleado 
+getEmpleado(1, (err, empleado) => {
+    if (err) {
+        return console.log(err);
+    }
+    //aca llamamos a la funcion por que necesito un empleado como parametro 
+    getSalario(empleado, (err, resp) => {
+        if (err) {
+            return console.log(err);
+        };
+        console.log(`El salario de ${ resp.nombre } es de ${ resp.salario }$`);
+    })
 });
-
-
-
-// getEmpleado(1, (err, empleado) => {
-//     if (err) {
-//         return console.log(err);
-//     }
-//     console.log(empleado);
-// });

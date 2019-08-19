@@ -11,4 +11,6 @@ para ver si tenemos estos parametros ya configurados vemos con el comando
 -instalamos node por ende npm
 -instalamos nodemon con npm 
 #npm install -g nodemon (se instala de manera global en nustro equipo)
-https://www.xvideos.com/video26558445/usura_mi_mujer_te_pagara_con_su_cuerpo
+
+para correr el proyecto nos paramos en la carpeta que tiene el script 
+y corremos nodemon nombrearchivo.js  
