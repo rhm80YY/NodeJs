@@ -14,3 +14,6 @@ para ver si tenemos estos parametros ya configurados vemos con el comando
 
 para correr el proyecto nos paramos en la carpeta que tiene el script 
 y corremos nodemon nombrearchivo.js  
+
+retomamos las funcionalidades con nodejs 
+2022
